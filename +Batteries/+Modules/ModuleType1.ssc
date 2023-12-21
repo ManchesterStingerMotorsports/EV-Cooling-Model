@@ -7,16 +7,16 @@ component ModuleType1
     %
     %    MATLAB version: 23.2
     %    Simscape Battery version: 23.2
-    %    Simscape code generated on: 08-Dec-2023 18:13:18
+    %    Simscape code generated on: 21-Dec-2023 17:29:02
 
     parameters
-        SOC_vecCell = {[0, .1, .25, .5, .75, .9, 1],'1'}; % Vector of state-of-charge values, SOC
-        V0_vecCell = {[3.5057, 3.566, 3.6337, 3.7127, 3.9259, 4.0777, 4.1928],'V'}; % Open-circuit voltage, V0(SOC)
+        SOC_vecCell = {[.1 .25 .5 .75 .9 1],'1'}; % Vector of state-of-charge values, SOC
+        V0_vecCell = {[2.89 3.27 3.53 3.74 3.84 3.99],'V'}; % Open-circuit voltage, V0(SOC)
         V_rangeCell = {[0, inf],'V'}; % Terminal voltage operating range [Min Max]
-        R0_vecCell = {[.0085, .0085, .0087, .0082, .0083, .0085, .0085],'Ohm'}; % Terminal resistance, R0(SOC)
-        AHCell = {27,'A*hr'}; % Cell capacity, AH
+        R0_vecCell = {[13e-3 13e-3 13e-3 13e-3 13e-3 13e-3],'Ohm'}; % Terminal resistance, R0(SOC)
+        AHCell = {3,'A*hr'}; % Cell capacity, AH
         extrapolation_optionCell = {simscape.enum.extrapolation.nearest,'1'}; % Extrapolation method for all tables
-        thermal_massCell = {100,'J/K'}; % Thermal mass
+        thermal_massCell = {800 * 46.6e-3,'J/K'}; % Thermal mass https://www.batterydesign.net/specific-heat-capacity-of-lithium-ion-cells/
         AmbientResistance = {25,'K/W'}; % Cell level ambient thermal path resistance
     end
 
