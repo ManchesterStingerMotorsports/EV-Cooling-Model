@@ -11,7 +11,7 @@ wall_thickness = 1e-4; % [m]
 
 
 % Flow Rates
-water_flowrate = 20; % [L/min]
+water_flowrate = 9; % [L/min]
 V_car = car_speed; % [m/s] car velocity
 water_temp = inlet_temp; % [degC]
 air_temp = 20; % [degC]
@@ -87,13 +87,20 @@ function Q_F = Vdot(radiator_area, rho, V_car)
     % https://ideaexchange.uakron.edu/cgi/viewcontent.cgi?article=1143&context=honors_research_projects  
     % SPAL 190mm diameter 24V brushed fans
     fan_D = 0.190;                  % Fan diameter [m]
-    n = 2;                          % number of fans
+    n = 1;                          % number of fans
     c1  = 350/(730/3600);           % Fan coeff (slope of linear regression)
     kr  = 15.79;                    % Radiator pressure coeff (from paper, a bit of a guess)
     a1  = radiator_area;            % Radiator frontal area
     a4  = n * pi * fan_D^2 /4;      % Fan frontal area
     c0  = 350;                      % Fan coeff (intercept of linear regression)
     v   = V_car;                    % Velocity of car
+
+    if (n == 0) % If there's no fans
+        c1 = 0;
+        c0 = 0;
+        a4 = a1;
+        n = 1;
+    end
 
     a = rho * 0.5 * ((kr/(a1^2)) + (1/(a4^2)));
     b = c1/n;

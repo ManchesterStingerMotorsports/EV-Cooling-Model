@@ -6,8 +6,8 @@ ModuleType1.V0_vecCell = [2.89 3.27 3.53 3.74 3.84 3.99]; % Open-circuit voltage
 ModuleType1.V_rangeCell = [0, inf]; % Terminal voltage operating range [Min Max], V
 ModuleType1.R0_vecCell = [13e-3 13e-3 13e-3 13e-3 13e-3 13e-3]; % Terminal resistance, R0(SOC), Ohm
 ModuleType1.AHCell = 3; % Cell capacity, AH, A*hr
-ModuleType1.thermal_massCell = 800 * 46.6e-3; % Thermal mass, J/K
-ModuleType1.AmbientResistance = 25; % Cell level ambient thermal path resistance, K/W
+ModuleType1.thermal_massCell = 1040 * 46.6e-3; % Thermal mass, J/K
+ModuleType1.AmbientResistance = 2.4; % Cell level ambient thermal path resistance, K/W
 
 %% ParallelAssemblyType1
 ParallelAssemblyType1 = ModuleType1;
